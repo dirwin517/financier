@@ -29,6 +29,11 @@ angular.module('app', [])
             });
         };
 
+        $scope.removeRow = function (rowIndex) {
+          console.log('rowIndex', rowIndex);
+          $scope.rows.splice(rowIndex, 1);
+        };
+
         function handleFileSelect(evt) {
             let files = evt.target.files[0]; // FileList object
             let reader = new FileReader();
