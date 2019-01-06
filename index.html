@@ -1,0 +1,82 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <!--<script src="components.js"></script>-->
+    <script src="app.js"></script>
+</head>
+<body>
+
+    <div id="row">
+
+        <div class="container-fluid">
+            <div ng-controller="Financier" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td>Cost</td>
+                        <td>Frequency</td>
+                        <td>Start</td>
+                        <td>End</td>
+                    </tr>
+                    <tr ng-repeat="row in rows">
+                        <td><input type="text" ng-model="row.name"></td>
+                        <td><input type="number" ng-model="row.cost"></td>
+                        <td>
+                            <select id="frequency" ng-model="row.frequency">
+                                <option value="once">Once</option>
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="biweekly">BiWeekly</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="biannually">Bi-Annually</option>
+                                <option value="yearly">Yearly</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input id="start" type="date" ng-model="row.start">
+                        </td>
+                        <td>
+                            <input id="end" type="date" ng-model="row.end">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="button" ng-click="addRow()" value="Add Row"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="file" id="file">Read File</td>
+                    </tr>
+
+                    <tr>
+                        <a  href="#" id="link" download="example.json">
+                            Download as JSON
+                        </a>
+                    </tr>
+
+                    <tr>
+                        <td colspan="100">
+                            <div id="container" style="width:1600px; height: 400px; margin: 0 auto"></div>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>
